@@ -10,8 +10,120 @@ var bio = {
 	},
 	"welcomeMessage": "Chrissy Gonzalez is a front end web developer in Brooklyn",
 	"skills": ["front end development", "UX design", "visual design"],
-	"biopic": "url",
-	"display": "function() {}"
+	"biopic": "images/chrissy_small.jpg",
+	"display": function() {
+		var formattedName = HTMLheaderName.replace("%data%", this.name);
+		$("#header").append(formattedName);
+
+		var formattedRole = HTMLheaderRole.replace("%data%", this.role);
+		$("#header").append(formattedRole);
+
+		for (contact in this.contacts) {
+			var formattedContact = HTMLcontactGeneric.replace("%contact%", contact);
+			formattedContact = formattedContact.replace("%data%", this.contacts[contact]);
+			$("#topContacts").append(formattedContact);
+			$("#footerContacts").append(formattedContact);
+		}
+
+		var formattedBioPic = HTMLbioPic.replace("%data%", this.biopic);
+		$("#header").append(formattedBioPic);
+
+		var formattedMsg = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
+		$("#header").append(formattedMsg);
+
+		if (this.skills.length > 0) {
+		  $("#header").append(HTMLskillsStart);
+		  for (skill in this.skills) {
+		  	var formattedSkill = HTMLskills.replace("%data%", this.skills[skill]);
+		  	$("#skills").append(formattedSkill);
+		  }
+		}
+	}
+}
+
+var work = {
+	"jobs": [
+		{
+			"employer": "Gust",
+			"title": "Lead UX Designer",
+			"location": "New York, NY",
+			"dates": "Jan 2015 – present",
+			"description": "Lead designers on new set of tools for entrepreneurs"
+		}, {
+			"employer": "Google",
+			"title": "Contract UX Designer",
+			"location": "New York, NY",
+			"dates": "Dec 2013 – Dec 2014",
+			"description": "UX designer on the Identity team"
+		}, {
+			"employer": "Intuit",
+			"title": "Senior Visual Designer",
+			"location": "Mountain View, CA",
+			"dates": "Oct 2010 – Dec 2013",
+			"description": "Visual and UX design on QuickBooks team"
+		}
+	],
+	"display": function() {
+		for (job in this.jobs) {
+		    $("#workExperience").append(HTMLworkStart);
+
+		    var formattedEmployer = HTMLworkEmployer.replace("%data%", this.jobs[job].employer);
+		    $(".work-entry:last").append(formattedEmployer);
+
+		    var formattedJob = HTMLworkTitle.replace("%data%", this.jobs[job].title);
+		    $(".work-entry:last").append(formattedJob);
+
+		    var formattedLocation = HTMLworkLocation.replace("%data%", this.jobs[job].location);
+		    $(".work-entry:last").append(formattedLocation);
+
+		    var formattedDates = HTMLworkDates.replace("%data%", this.jobs[job].dates);
+		    $(".work-entry:last").append(formattedDates);
+
+		    var formattedDescription = HTMLworkDescription.replace("%data%", this.jobs[job].description);
+		    $(".work-entry:last").append(formattedDescription);
+		}
+	}
+}
+
+var projects = {
+	"projects": [
+	{
+		"title": "NT Premium",
+		"dates": "Feb 2015 – present",
+		"description": "legal tools for entrepreneurs",
+		"images": ["images/qbm_cust_after.png", "images/qbm_invoice_after.png"]
+	}, 	{
+		"title": "Mobile web sign in",
+		"dates": "May 2014 – Dec 2014",
+		"description": "sign in across all platforms",
+		"images": ["images/qbm_cust_after.png", "images/qbm_invoice_after.png"]
+	}, 	{
+		"title": "QuickBooks Mobile",
+		"dates": "Sep 2011 – Nov 2013",
+		"description": "QuickBooks for Android phone and tablet",
+		"images": ["images/qbm_cust_after.png", "images/qbm_invoice_after.png"]
+	}],
+	"display": function() {
+		for (project in this.projects) {
+		    $("#projects").append(HTMLprojectStart);
+
+		    var formattedTitle = HTMLprojectTitle.replace("%data%", this.projects[project].title);
+		    $(".project-entry:last").append(formattedTitle);
+
+		    var formattedDates = HTMLprojectDates.replace("%data%", this.projects[project].dates);
+		    $(".project-entry:last").append(formattedDates);
+
+		    var formattedDescription = HTMLprojectDescription.replace("%data%", this.projects[project].description);
+		    $(".project-entry:last").append(formattedDescription);
+
+		    //TODO loop through images array instead of hardcoding in two images
+		    var formattedImage1 = HTMLprojectImage.replace("%data%", this.projects[project].images[0]);
+		    $(".project-entry:last").append(formattedImage1);
+
+		    var formattedImage2 = HTMLprojectImage.replace("%data%", this.projects[project].images[1]);
+		    $(".project-entry:last").append(formattedImage2);
+		}
+	}
 }
 
 var education = {
@@ -49,62 +161,51 @@ var education = {
 			"url": "http://skillcrush.com"
 		}
 	],
-	"display": "function(){ }"
-}
+	"display": function(){
+		$("#education").append(HTMLschoolStart);
 
-var work = {
-	"jobs": [
-		{
-			"employer": "Gust",
-			"title": "Lead UX Designer",
-			"location": "New York, NY",
-			"dates": "Jan 2015 – present",
-			"description": "Lead designers on new set of tools for entrepreneurs"
-		}, {
-			"employer": "Google",
-			"title": "Contract UX Designer",
-			"location": "New York, NY",
-			"dates": "Dec 2013 – Dec 2014",
-			"description": "UX designer on the Identity team"
-		}, {
-			"employer": "Intuit",
-			"title": "Senior Visual Designer",
-			"location": "Mountain View, CA",
-			"dates": "Oct 2010 – Dec 2013",
-			"description": "Visual and UX design on QuickBooks team"
+		for (school in this.schools) {
+			var formattedName = HTMLschoolName.replace("%data%", this.schools[school].name);
+			$(".education-entry:last").append(formattedName);
+
+			var formattedDegree = HTMLschoolDegree.replace("%data%", this.schools[school].degree);
+			$(".education-entry:last").append(formattedDegree);
+
+			var formattedDates = HTMLschoolDates.replace("%data%", this.schools[school].dates);
+			$(".education-entry:last").append(formattedDates);
+
+			var formattedLocation = HTMLschoolLocation.replace("%data%", this.schools[school].location);
+			$(".education-entry:last").append(formattedLocation);
+
+			for (major in this.schools[school].majors) {
+				var formattedMajor = HTMLschoolMajor.replace("%data%", this.schools[school].majors[major]);
+				$(".education-entry:last").append(formattedMajor);
+			}
 		}
-	],
-	"display": "function() {}"
+
+		$("#education").append(HTMLonlineClasses);
+		$("#education").append(HTMLschoolStart);
+
+		for (course in this.onlineCourses) {
+			var formattedTitle = HTMLonlineTitle.replace("%data%", this.onlineCourses[course].title);
+			$(".education-entry:last").append(formattedTitle);
+
+			var formattedSchool = HTMLonlineSchool.replace("%data%", this.onlineCourses[course].school);
+			$(".education-entry:last").append(formattedSchool);
+
+			var formattedOnlineDates = HTMLonlineDates.replace("%data%", this.onlineCourses[course].dates);
+			$(".education-entry:last").append(formattedOnlineDates);
+
+			var formattedUrl = HTMLonlineURL.replace("%data%", this.onlineCourses[course].url);
+			$(".education-entry:last").append(formattedUrl);
+		}
+	}
 }
 
-var projects = {
-	"projects": [
-	{
-		"title": "NT Premium",
-		"dates": "Feb 2015 – present",
-		"description": "legal tools for entrepreneurs",
-		"images": ["images/qbm_cust_after.png", "images/qbm_invoice_after.png"]
-	}, 	{
-		"title": "Mobile web sign in",
-		"dates": "May 2014 – Dec 2014",
-		"description": "sign in across all platforms",
-		"images": ["images/qbm_cust_after.png", "images/qbm_invoice_after.png"]
-	}, 	{
-		"title": "QuickBooks Mobile",
-		"dates": "Sep 2011 – Nov 2013",
-		"description": "QuickBooks for Android phone and tablet",
-		"images": ["images/qbm_cust_after.png", "images/qbm_invoice_after.png"]
-	}],
-	"display": "function() {}"
-}
-
-
-
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formatSkills0 = HTMLskills.replace("%data%", bio.skills[0]);
-var formatSkills1 = HTMLskills.replace("%data%", bio.skills[1]);
-var formatSkills2 = HTMLskills.replace("%data%", bio.skills[2]);
-
+bio.display();
+work.display();
+projects.display();
+education.display();
 
 function inName(name) {
   var nameArray = name.trim().split(" ");
@@ -112,46 +213,6 @@ function inName(name) {
 
   return formattedName;
 }
-
-$("#main").append(internationalizeButton);
-
-$("#header").prepend(formattedName);
-
-if (bio.skills.length > 0) {
-  $("#header").append(HTMLskillsStart);
-  $("#skillsH3").append(formatSkills0);
-  $("#skillsH3").append(formatSkills1);
-  $("#skillsH3").append(formatSkills2);
-}
-
-function displayWork() {
-  for (jobs in work.jobs) {
-    $("#workExperience").append(HTMLworkStart);
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[jobs].employer);
-    var formattedJob = HTMLworkTitle.replace("%data%", work.jobs[jobs].title);
-    var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[jobs].location);
-    var formattedDates = HTMLworkDates.replace("%data%", work.jobs[jobs].dates);
-    var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[jobs].description);
-    $(".work-entry:last").append(formattedEmployer + formattedJob + formattedLocation + formattedDates + formattedDescription);
-  }
-}
-
-displayWork();
-
-projects.display = function() {
-  console.log("working");
-  for (items in projects.projects) {
-    $("#projects").append(HTMLprojectStart);
-    var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[items].title);
-    var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[items].dates);
-    var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[items].description);
-    var formattedImage1 = HTMLprojectImage.replace("%data%", projects.projects[items].images[0]);
-    var formattedImage2 = HTMLprojectImage.replace("%data%", projects.projects[items].images[1]);
-    $(".project-entry:last").append(formattedTitle + formattedDates + formattedDescription + formattedImage1 + formattedImage2);
-  }
-}
-
-projects.display();
 
 $("#mapDiv").append(googleMap);
 
