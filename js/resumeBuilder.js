@@ -1,6 +1,6 @@
 var bio = {
 	"name": "Chrissy Gonzalez",
-	"role": "Front end web developer",
+	"role": "Designer and developer",
 	"contacts": {
 		"mobile": "206 412 4486",
 		"email": "chrissygonzalez@gmail.com",
@@ -12,27 +12,51 @@ var bio = {
 	"skills": ["front end development", "UX design", "visual design"],
 	"biopic": "images/chrissy_small.jpg",
 	"display": function() {
-		var formattedName = HTMLheaderName.replace("%data%", this.name);
-		$("#header").append(formattedName);
-
 		var formattedRole = HTMLheaderRole.replace("%data%", this.role);
-		$("#header").append(formattedRole);
+		$("#namerole").prepend(formattedRole);
+
+		var formattedName = HTMLheaderName.replace("%data%", this.name);
+		$("#namerole").prepend(formattedName);
 
 		for (contact in this.contacts) {
-			var formattedContact = HTMLcontactGeneric.replace("%contact%", contact);
+			var formattedContact = "";
+			switch (contact) {
+				case "mobile":
+					formattedContact = HTMLcontactGeneric.replace("%contact%", "");
+					break;
+				case "email":
+					formattedContact = HTMLcontactGeneric.replace("%contact%", "");
+					break;
+				case "github":
+					formattedContact = HTMLcontactGeneric.replace("%contact%", "");
+					break;
+				case "twitter":
+					formattedContact = HTMLcontactGeneric.replace("%contact%", "");
+					break;
+				case "location":
+					formattedContact = HTMLcontactGeneric.replace("%contact%", "");
+					break;
+				default:
+					formattedContact = HTMLcontactGeneric.replace("%contact%", contact);
+			}
+			/*if(contact === "twitter") {
+				formattedContact = HTMLcontactGeneric.replace("%contact%", "");
+			} else {
+				formattedContact = HTMLcontactGeneric.replace("%contact%", contact);
+			} */
 			formattedContact = formattedContact.replace("%data%", this.contacts[contact]);
 			$("#topContacts").append(formattedContact);
 			$("#footerContacts").append(formattedContact);
 		}
 
 		var formattedBioPic = HTMLbioPic.replace("%data%", this.biopic);
-		$("#header").append(formattedBioPic);
+		$("header").prepend(formattedBioPic);
 
 		var formattedMsg = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
-		$("#header").append(formattedMsg);
+		$(".summary").append(formattedMsg);
 
 		if (this.skills.length > 0) {
-		  $("#header").append(HTMLskillsStart);
+		  $(".summary").append(HTMLskillsStart);
 		  for (skill in this.skills) {
 		  	var formattedSkill = HTMLskills.replace("%data%", this.skills[skill]);
 		  	$("#skills").append(formattedSkill);
@@ -68,10 +92,8 @@ var work = {
 		    $("#workExperience").append(HTMLworkStart);
 
 		    var formattedEmployer = HTMLworkEmployer.replace("%data%", this.jobs[job].employer);
-		    $(".work-entry:last").append(formattedEmployer);
-
 		    var formattedJob = HTMLworkTitle.replace("%data%", this.jobs[job].title);
-		    $(".work-entry:last").append(formattedJob);
+		    $(".work-entry:last").append(formattedEmployer + formattedJob);
 
 		    var formattedLocation = HTMLworkLocation.replace("%data%", this.jobs[job].location);
 		    $(".work-entry:last").append(formattedLocation);
@@ -166,10 +188,8 @@ var education = {
 
 		for (school in this.schools) {
 			var formattedName = HTMLschoolName.replace("%data%", this.schools[school].name);
-			$(".education-entry:last").append(formattedName);
-
 			var formattedDegree = HTMLschoolDegree.replace("%data%", this.schools[school].degree);
-			$(".education-entry:last").append(formattedDegree);
+			$(".education-entry:last").append(formattedName + formattedDegree);
 
 			var formattedDates = HTMLschoolDates.replace("%data%", this.schools[school].dates);
 			$(".education-entry:last").append(formattedDates);
@@ -188,10 +208,8 @@ var education = {
 
 		for (course in this.onlineCourses) {
 			var formattedTitle = HTMLonlineTitle.replace("%data%", this.onlineCourses[course].title);
-			$(".education-entry:last").append(formattedTitle);
-
 			var formattedSchool = HTMLonlineSchool.replace("%data%", this.onlineCourses[course].school);
-			$(".education-entry:last").append(formattedSchool);
+			$(".education-entry:last").append(formattedTitle + formattedSchool);
 
 			var formattedOnlineDates = HTMLonlineDates.replace("%data%", this.onlineCourses[course].dates);
 			$(".education-entry:last").append(formattedOnlineDates);

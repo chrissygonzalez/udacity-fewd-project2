@@ -1,69 +1,7 @@
 * {
   padding:0;
   margin:0;
-  font-family: 'Roboto', sans-serif;
-}
-
-.clearfix {
-  overflow: auto;
-}
-
-.education-entry, .work-entry, .project-entry {
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-h1 {
-  font-size: 40px;
-  color: #F5A623;
-  line-height: 48px;
-  display: inline;
-}
-
-h2 {
-  font-weight: bold;
-  font-size: 24px;
-  color: #999999;
-  line-height: 29px;
-  padding: 10px;
-}
-
-h3 {
-  font-style: italic;
-  font-size: 20px;
-  color: #000000;
-  line-height: 22px;
-}
-
-h4 {
-  font-weight: bold;
-  font-size: 14px;
-  color: #4A4A4A;
-  line-height: 17px;
-}
-
-h2, h3, h4, h5 {
-  padding:10px;
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-
-.date-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999999;
-  line-height: 16px;
-  float: left;
-}
-
-.location-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999999;
-  line-height: 16px;
-  float: right;
-
+  font-family: 'Montserrat', sans-serif;
 }
 
 p {
@@ -79,24 +17,165 @@ a {
   display: block;
 }
 
-.welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #F3F3F3;
-  line-height: 28px;
+ul {
+  list-style-type: none;
 }
 
-#skillsH3 {
-  color: #F5AE23;
-  display: none;
+img {
+  padding: 10px;
+}
+
+span {
+  padding: 5px;
+}
+
+li {
+  padding-bottom: 5px;
+}
+
+/*
+****************
+GRID
+****************
+*/
+.grid {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.row {
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.col-1 {
+  width: 8.33%;
+}
+
+.col-2 {
+  width: 16.66%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33%;
+}
+
+.col-5 {
+  width: 41.66%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33%;
+}
+
+.col-8 {
+  width: 66.66%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.33%;
+}
+
+.col-11 {
+  width: 91.66%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+/*
+*****************
+TYPOGRAPHY
+*****************
+*/
+
+h1 {
+  font-size: 40px;
+  color: #1a1a1a;
+  line-height: 48px;
+  margin-top: 40px;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 29px;
+  padding: 10px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 22px;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 14px;
+  color: #4A4A4A;
+  line-height: 17px;
+}
+
+/* h2, h3, h4, h5 {
+  padding:10px;
+  padding-left: 5%;
+  padding-right: 5%;
+} */
+
+.date-text {
+  font-size: 14px;
+  color: #999999;
+  line-height: 16px;
+  float: left;
+}
+
+.location-text {
+  font-size: 14px;
+  color: #999999;
+  line-height: 16px;
+  float: right;
+}
+
+.header {
+  padding-left: 3px;
+}
+
+/*
+*****************
+GENERAL CLASSES
+*****************
+*/
+
+.clearfix {
+  overflow: auto;
+}
+
+.education-entry, .work-entry, .project-entry {
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .orange {
   background-color: #F5AE23;
-}
-
-.orange-text {
-  color: #F5AE23;
 }
 
 .white-text {
@@ -114,15 +193,10 @@ a {
   background-color: #4A4A4A;
 }
 
-/* TODO: Replace with image later */
-#header {
-  background-color: #484848;
-}
-
 .flex-box {
   display: -webkit-flex;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
@@ -133,21 +207,6 @@ a {
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 2.5%
-}
-
-ul {
-  list-style-type: none;
-}
-
-.biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
-}
-
-img {
-  padding: 10px;
 }
 
 /* Bar chart stuff */
@@ -162,13 +221,94 @@ img {
   display: inline-block;
 }
 
-span {
+/*
+*****************
+HEADER
+*****************
+*/
+
+#header {
+  background-color: #fff;
+}
+
+#skillsH3 {
+  color: #1a1a1a;
+  display: none;
+}
+
+.lighter{
+  color: #666;
+}
+
+.icon {
+  font-family: 'FontAwesome';
   padding: 5px;
 }
 
+.welcome-message {
+  font-size: 18px;
+  color: #1a1a1a;
+  line-height: 28px;
+}
+
+.biopic {
+  float: left;
+  padding: 10px;
+  width: 200px;
+  display: none;
+}
+
+#topContacts {
+  margin-top: 45px;
+}
+
+/*
+*****************
+SUMMARY
+*****************
+*/
+
+.summary {
+  background-color: yellow;
+  padding: 20px 40px;
+  max-width: none;
+}
+
+/*
+*****************
+MAP
+*****************
+*/
+
+#map {
+  display: block;
+  height: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#mapDiv {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+/*
+*****************
+FOOTER
+*****************
+*/
+
 #letsConnect {
   text-align: center;
+  background-color: yellow;
 }
+
+/*
+*****************
+MEDIA QUERIES
+*****************
+*/
 
 @media only screen and (max-width: 1024px) {
   #letsConnect {
@@ -192,19 +332,6 @@ span {
   .welcome-message {
     display: none;
   }
-}
-
-#map {
-  display: block;
-  height: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
 }
 
 @media only screen and (min-width: 750px) {
