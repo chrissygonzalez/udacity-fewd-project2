@@ -19,6 +19,7 @@ a {
 
 ul {
   list-style-type: none;
+  display: inline-block;
 }
 
 img {
@@ -31,6 +32,12 @@ span {
 
 li {
   padding-bottom: 5px;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background: #F0F0F0;
 }
 
 /*
@@ -107,7 +114,8 @@ TYPOGRAPHY
 */
 
 h1 {
-  font-size: 40px;
+  font-weight: normal;
+  font-size: 24px;
   color: #1a1a1a;
   line-height: 48px;
   margin-top: 40px;
@@ -115,31 +123,43 @@ h1 {
 
 h2 {
   font-weight: normal;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 29px;
-  padding: 10px;
-  text-transform: uppercase;
-  color: #1a1a1a;
-  letter-spacing: 1px;
+  color: #2A7363;
 }
 
 h3 {
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #030304;
   line-height: 22px;
+  display: inline-block;
 }
 
 h4 {
-  font-weight: bold;
   font-size: 14px;
-  color: #4A4A4A;
-  line-height: 17px;
 }
 
-/* h2, h3, h4, h5 {
-  padding:10px;
-  padding-left: 5%;
-  padding-right: 5%;
-} */
+a {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+p {
+  font-family: 'Merriweather';
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.pink {
+  color: #FF16BD;
+}
+
+.employer {
+  color: #030304;
+  margin-top: 30px;
+}
 
 .date-text {
   font-size: 14px;
@@ -149,14 +169,13 @@ h4 {
 }
 
 .location-text {
+  font-family: 'Merriweather';
   font-size: 14px;
-  color: #999999;
-  line-height: 16px;
-  float: right;
+  line-height: 30px;
 }
 
-.header {
-  padding-left: 3px;
+.serif {
+  font-family: 'Merriweather';
 }
 
 /*
@@ -167,30 +186,6 @@ GENERAL CLASSES
 
 .clearfix {
   overflow: auto;
-}
-
-.education-entry, .work-entry, .project-entry {
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-.orange {
-  background-color: #F5AE23;
-}
-
-.white-text {
-  font-weight: bold;
-  color: #FFFFFF;
-}
-
-.gray {
-  background-color: #F3F3F3;
-  padding-bottom: 10px;
-  clear:both;
-}
-
-.dark-gray {
-  background-color: #4A4A4A;
 }
 
 .flex-box {
@@ -209,31 +204,15 @@ GENERAL CLASSES
   padding-bottom: 2.5%
 }
 
-/* Bar chart stuff */
-.chart div {
-  font: 10px sans-serif;
-  background-color: #4A4A4A;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  height: 12px;
-  color: white;
-  display: inline-block;
-}
-
 /*
 *****************
 HEADER
 *****************
 */
 
-#header {
-  background-color: #fff;
-}
-
-#skillsH3 {
-  color: #1a1a1a;
-  display: none;
+header {
+  background-color: #50E3C2;
+  padding-bottom: 20px;
 }
 
 .lighter{
@@ -252,9 +231,7 @@ HEADER
 }
 
 .biopic {
-  float: left;
   padding: 10px;
-  width: 200px;
   display: none;
 }
 
@@ -264,14 +241,33 @@ HEADER
 
 /*
 *****************
-SUMMARY
+SKILLS
 *****************
 */
 
-.summary {
-  background-color: yellow;
-  padding: 20px 40px;
-  max-width: none;
+#skillsSection {
+  margin: 10px 0;
+}
+
+.skill {
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #FF16BD;
+  color: #fff;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+/*
+*****************
+WORK
+*****************
+*/
+
+#workExperience {
+  margin-top: 40px;
 }
 
 /*

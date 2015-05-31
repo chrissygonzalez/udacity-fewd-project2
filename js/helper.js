@@ -4,17 +4,17 @@ var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<h2 class="header">%data%</h2>';
 
 var HTMLcontactGeneric = '<li><span class="icon">%contact%</span>%data%</li>';
-var HTMLbioPic = '<img src="%data%" class="col-2 biopic">';
-var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
+var HTMLbioPic = '<img src="%data%" class="biopic">';
+var HTMLwelcomeMsg = '<h2>%data%</h2>';
 
-var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills"></ul>';
-var HTMLskills = '<li>%data%</li>';
+var HTMLskillsStart = '<h3 class="pink">Top Skills</h3><ul id="skills"></ul>';
+var HTMLskills = '<li class="skill">%data%</li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' – %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
+var HTMLworkEmployer = ', %data%</a>';
+var HTMLworkTitle = '<a href="#" class="employer">%data%';
+var HTMLworkDates = '%data%</div>';
+var HTMLworkLocation = '<div class="location-text">%data% • ';
 var HTMLworkDescription = '<p><br>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';

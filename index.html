@@ -5,7 +5,7 @@
 
   <!-- Load the page styles. -->
   <link href="css/style.css" rel="stylesheet" type="text/css">
-  <link href='http://fonts.googleapis.com/css?family=Merriweather:300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Merriweather:400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script src="js/jQuery.js"></script>
@@ -18,31 +18,63 @@
 </head>
 
 <body unresolved>
-  <div id="main" class="grid">
-    <header class="row">
-      <div id="namerole" class="col-6"></div>
-      <ul id="topContacts" class="col-2"></ul>
-      <section class="summary col-12"></section>
+    <header>
+      <div class="grid">
+        <div class="row">
+          <section id="namerole" class="col-8"></section>
+        <ul id="topContacts" class="col-4"></ul>
+        </div>
+        <div class="row">
+          <section class="summary col-12"></section>
+        </div>
+      </div>
     </header>
-    <div style='clear: both;'></div>
-    <div id="workExperience" class='gray'>
-      <h2>Work Experience</h2>
+
+    <div class="grid">
+      <div class="row">
+        <div id="skillsSection"></div>
+      </div>
     </div>
-    <div id="projects">
-      <h2>Projects</h2>
+
+    <hr>
+
+    <div class="grid">
+      <div class="row">
+        <div id="workExperience" class="col-12">
+          <h3>Work Experience</h3>
+        </div>
+      </div>
     </div>
-    <div id="education" class='gray'>
-      <h2>Education</h2>
+
+    <div class="grid">
+      <div class="row">
+        <div id="projects">
+          <h3>Projects</h3>
+        </div>
+      </div>
     </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
+
+    <div class="grid">
+      <div class="row">
+        <div id="education" class='gray'>
+          <h3>Education</h3>
+        </div>
+      </div>
     </div>
+
+    <div class="grid">
+      <div class="row">
+        <div id="mapDiv">
+          <h3>Where I've Lived and Worked</h3>
+        </div>
+      </div>
+    </div>
+
     <div id="letsConnect" class='dark-gray'>
       <h2 class='orange center-text'>Let's Connect</h2>
         <ul id="footerContacts" class="flex-box">
       </ul>
     </div>
-  </div>
 
   <script src="js/resumeBuilder.js"></script>
 

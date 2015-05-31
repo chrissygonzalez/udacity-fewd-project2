@@ -8,15 +8,18 @@ var bio = {
 		"twitter": "@chrissygonzalez",
 		"location": "Brooklyn, NY"
 	},
-	"welcomeMessage": "Chrissy Gonzalez is a front end web developer in Brooklyn",
-	"skills": ["front end development", "UX design", "visual design"],
-	"biopic": "images/chrissy_small.jpg",
+	"welcomeMessage": "Champion of simplicity, friend of rainbow sprinkles",
+	"skills": ["UX design", "visual design", "front end development"],
+	"biopic": "images/sprinkles.png",
 	"display": function() {
-		var formattedRole = HTMLheaderRole.replace("%data%", this.role);
-		$("#namerole").prepend(formattedRole);
+		var formattedNameRole = HTMLheaderName.replace("%data%", this.name + ", "+ this.role);
+		$("#namerole").append(formattedNameRole);
 
-		var formattedName = HTMLheaderName.replace("%data%", this.name);
-		$("#namerole").prepend(formattedName);
+		var formattedMsg = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
+		$("#namerole").append(formattedMsg);
+
+		var formattedBioPic = HTMLbioPic.replace("%data%", this.biopic);
+		$("#namerole").prepend(formattedBioPic);
 
 		for (contact in this.contacts) {
 			var formattedContact = "";
@@ -49,14 +52,8 @@ var bio = {
 			$("#footerContacts").append(formattedContact);
 		}
 
-		var formattedBioPic = HTMLbioPic.replace("%data%", this.biopic);
-		$("header").prepend(formattedBioPic);
-
-		var formattedMsg = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
-		$(".summary").append(formattedMsg);
-
 		if (this.skills.length > 0) {
-		  $(".summary").append(HTMLskillsStart);
+		  $("#skillsSection").append(HTMLskillsStart);
 		  for (skill in this.skills) {
 		  	var formattedSkill = HTMLskills.replace("%data%", this.skills[skill]);
 		  	$("#skills").append(formattedSkill);
@@ -93,13 +90,11 @@ var work = {
 
 		    var formattedEmployer = HTMLworkEmployer.replace("%data%", this.jobs[job].employer);
 		    var formattedJob = HTMLworkTitle.replace("%data%", this.jobs[job].title);
-		    $(".work-entry:last").append(formattedEmployer + formattedJob);
+		    $(".work-entry:last").append(formattedJob + formattedEmployer);
 
 		    var formattedLocation = HTMLworkLocation.replace("%data%", this.jobs[job].location);
-		    $(".work-entry:last").append(formattedLocation);
-
 		    var formattedDates = HTMLworkDates.replace("%data%", this.jobs[job].dates);
-		    $(".work-entry:last").append(formattedDates);
+		    $(".work-entry:last").append(formattedLocation + formattedDates);
 
 		    var formattedDescription = HTMLworkDescription.replace("%data%", this.jobs[job].description);
 		    $(".work-entry:last").append(formattedDescription);
