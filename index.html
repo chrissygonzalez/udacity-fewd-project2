@@ -8,8 +8,9 @@
   <link href='http://fonts.googleapis.com/css?family=Merriweather:400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css"/>
   <script src="js/jQuery.js"></script>
-
+  <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
   <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
@@ -21,17 +22,16 @@
     <header>
       <div class="grid">
         <div class="row">
+          <div class="col-1"></div>
           <section id="namerole" class="col-8"></section>
-        <ul id="topContacts" class="col-4"></ul>
-        </div>
-        <div class="row">
-          <section class="summary col-12"></section>
+          <ul id="topContacts" class="col-3"></ul>
         </div>
       </div>
     </header>
 
     <div class="grid">
       <div class="row">
+        <div class="col-1"></div>
         <div id="skillsSection"></div>
       </div>
     </div>
@@ -40,41 +40,59 @@
 
     <div class="grid">
       <div class="row">
-        <div id="workExperience" class="col-12">
+        <div class="col-1"></div>
+        <div id="workExperience" class="col-8">
           <h3>Work Experience</h3>
         </div>
       </div>
     </div>
 
+    <hr>
+
     <div class="grid">
       <div class="row">
-        <div id="projects">
-          <h3>Projects</h3>
+        <div class="col-1"></div>
+        <div id="projects" class="col-11">
+          <h3>Recent Projects</h3>
         </div>
       </div>
     </div>
 
+    <hr>
+
     <div class="grid">
       <div class="row">
-        <div id="education" class='gray'>
+        <div class="col-1"></div>
+        <div id="education" class='col-5'>
           <h3>Education</h3>
         </div>
-      </div>
-    </div>
-
-    <div class="grid">
-      <div class="row">
-        <div id="mapDiv">
-          <h3>Where I've Lived and Worked</h3>
+        <div id="onlineeducation" class='col-5'>
         </div>
       </div>
     </div>
 
-    <div id="letsConnect" class='dark-gray'>
-      <h2 class='orange center-text'>Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
+    <hr>
+
+    <div class="grid">
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-11">
+          <h3>Where I've Lived and Worked</h3>
+          <div id="mapDiv"></div>
+        </div>
+      </div>
     </div>
+
+    <footer>
+      <div class="grid">
+        <div class="row">
+          <div id="letsConnect col-12">
+            <ul id="footerContacts" class="flex-box">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
 
   <script src="js/resumeBuilder.js"></script>
 
@@ -101,6 +119,7 @@
     if(document.getElementById('map') === null) {
       document.getElementById('mapDiv').style.display = 'none';
     }
+
   </script>
 </body>
 </html>

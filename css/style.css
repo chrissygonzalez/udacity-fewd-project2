@@ -4,12 +4,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-p {
-  font-size: 14px;
-  color: #333333;
-  line-height: 21px;
-}
-
 a {
   color: #1199C3;
   text-decoration: none;
@@ -47,7 +41,7 @@ GRID
 */
 .grid {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1024px;
     width: 100%;
 }
 
@@ -134,6 +128,7 @@ h3 {
   color: #030304;
   line-height: 22px;
   display: inline-block;
+  margin-top: 40px;
 }
 
 h4 {
@@ -143,17 +138,27 @@ h4 {
 a {
   font-weight: normal;
   font-size: 16px;
+  display: inline;
+  color: #030304;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #286DBE;
 }
 
 p {
   font-family: 'Merriweather';
-  font-size: 14px;
-  margin-top: 5px;
-  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 26px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  color: #333;
 }
 
 .pink {
   color: #FF16BD;
+  margin-right: 5px;
 }
 
 .employer {
@@ -168,14 +173,13 @@ p {
   float: left;
 }
 
-.location-text {
+.serif-text {
   font-family: 'Merriweather';
-  font-size: 14px;
   line-height: 30px;
 }
 
-.serif {
-  font-family: 'Merriweather';
+.italic {
+  font-style: italic;
 }
 
 /*
@@ -202,6 +206,10 @@ GENERAL CLASSES
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 2.5%
+}
+
+.right {
+  float: right;
 }
 
 /*
@@ -246,7 +254,7 @@ SKILLS
 */
 
 #skillsSection {
-  margin: 10px 0;
+  margin-bottom: 20px;
 }
 
 .skill {
@@ -267,7 +275,74 @@ WORK
 */
 
 #workExperience {
-  margin-top: 40px;
+
+}
+
+/*
+*****************
+PROJECTS
+*****************
+*/
+
+#projects {
+  padding-bottom: 40px;
+}
+
+#carousel {
+  display: inline-block;
+}
+
+.project-text {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 10px;
+  margin-left: 30px;
+}
+
+.carousel {
+  max-height: 200px;
+}
+
+.project-entry {
+  margin-top: 30px;
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 30px;
+  padding: 10px;
+  font-family: 'FontAwesome';
+  border: none;
+  background-color: transparent;
+  color: #ccc;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  color: #286DBE;
+}
+
+.slick-prev {
+  margin-left: 65px;
+}
+
+button:focus {
+  outline:0;
+}
+
+/*
+*****************
+EDUCATION
+*****************
+*/
+
+#education,
+#onlineeducation {
+  padding-bottom: 40px;
+}
+
+.education-entry {
+  margin-top: 30px;
 }
 
 /*
@@ -277,16 +352,16 @@ MAP
 */
 
 #map {
+  margin-top: 40px;
   display: block;
   height: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
+  border: 1px solid #F0F0F0;
 }
 
 #mapDiv {
   height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
+  width: 80%;
+  padding-bottom: 40px;
 }
 
 /*
@@ -295,9 +370,12 @@ FOOTER
 *****************
 */
 
-#letsConnect {
+footer {
+  background-color: #50E3C2;
+}
+
+#letsConnect h2 {
   text-align: center;
-  background-color: yellow;
 }
 
 /*

@@ -11,42 +11,43 @@ var HTMLskillsStart = '<h3 class="pink">Top Skills</h3><ul id="skills"></ul>';
 var HTMLskills = '<li class="skill">%data%</li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = ', %data%</a>';
-var HTMLworkTitle = '<a href="#" class="employer">%data%';
+var HTMLworkEmployer = ', <a href="#" target="_blank">%data%</a></div>';
+var HTMLworkTitle = '<div class="employer">%data%';
 var HTMLworkDates = '%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data% • ';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkLocation = '<div class="serif-text">%data% • ';
+var HTMLworkDescription = '<p>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
-var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectText = '<div class="project-text col-6"></div>';
+var HTMLprojectTitle = '<div>%data%</div>';
+var HTMLprojectDates = '<div class="serif-text">%data%</div>';
+var HTMLprojectDescription = '<p>%data%</p>';
+var HTMLprojectCarouselStart = '<div id="carousel" class="forSlick col-3"></div>';
+var HTMLprojectImage = '<div class="carousel"><img src="%data%"></div>';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' – %data%</a>';
-var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<br>Major: %data%';
+var HTMLschoolName = '<a href="#">%data%</a>';
+var HTMLschoolDates = ' • %data%</div>';
+var HTMLschoolLocation = '<div class="serif-text">%data%';
+var HTMLschoolDegree = '<div class="serif-text italic">%data% in ';
+var HTMLschoolMajor = '%data%</div>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' – %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
+var HTMLonlineTitle = '<div class="serif-text italic">%data%</div>';
+var HTMLonlineSchool = '<a href="#">%data%</a>';
+var HTMLonlineDates = '<div class="serif-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
-var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
 
-/*
-The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
-$(document).ready(function() {
-  $('button').click(function() {
-    var iName = inName() || function(){};
-    $('#name').html(iName);
+// for Slick Carousel (http://kenwheeler.github.io/slick/)
+$(document).ready(function(){
+  $('.forSlick').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    prevArrow: '<button type="button" class="slick-prev"></button>',
+    nextArrow: '<button type="button" class="slick-next"></button>'
   });
 });
 
@@ -82,6 +83,7 @@ function initializeMap() {
   var locations;
 
   var mapOptions = {
+    scrollwheel: false,
     disableDefaultUI: true
   };
 
@@ -131,10 +133,12 @@ function initializeMap() {
     var bounds = window.mapBounds;            // current boundaries of the map window
 
     // marker is an object with additional data about the pin for a single location
+    var image = 'images/pinkpin.png';
     var marker = new google.maps.Marker({
       map: map,
       position: placeData.geometry.location,
-      title: name
+      title: name,
+      icon: image
     });
 
     // infoWindows are the little helper windows that open when you click
@@ -157,6 +161,32 @@ function initializeMap() {
     map.fitBounds(bounds);
     // center the map
     map.setCenter(bounds.getCenter());
+
+    var styles = [
+  {
+    stylers: [
+      { hue: "#50E3C2" },
+      { saturation: 60 },
+      { lightness: -10 },
+      { gamma: 1.3 }
+    ]
+  },{
+    featureType: "water",
+    elementType: "geometry",
+    stylers: [
+      { lightness: 100 },
+      { visibility: "simplified" }
+    ]
+  },{
+    featureType: "road",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  }
+];
+
+map.setOptions({styles: styles});
   }
 
   /*
@@ -218,3 +248,4 @@ window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
   map.fitBounds(mapBounds);
 });
+

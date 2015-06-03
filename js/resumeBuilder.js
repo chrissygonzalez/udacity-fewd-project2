@@ -66,22 +66,25 @@ var work = {
 	"jobs": [
 		{
 			"employer": "Gust",
+			"url": "http://gust.com",
 			"title": "Lead UX Designer",
 			"location": "New York, NY",
 			"dates": "Jan 2015 – present",
-			"description": "Lead designers on new set of tools for entrepreneurs"
+			"description": "Lead designer for Gust’s legal tools for entrepreneurs. As part of distributed team, responsible for wireframes, flows, and user interviews. Working directly with distributed development team, using Sketch, Slack, and Trello to plan and execute work in sprints."
 		}, {
 			"employer": "Google",
+			"url": "http://google.com",
 			"title": "Contract UX Designer",
 			"location": "New York, NY",
 			"dates": "Dec 2013 – Dec 2014",
-			"description": "UX designer on the Identity team"
+			"description": "UX designer on the Identity team. Designed flows and wireframes for future versions of sign in across all platforms. Created visualizations for presentations to senior management. Contributed to larger projects such as generic avatar design and account switching patterns for multilogin."
 		}, {
 			"employer": "Intuit",
+			"url": "http://intuit.com",
 			"title": "Senior Visual Designer",
 			"location": "Mountain View, CA",
 			"dates": "Oct 2010 – Dec 2013",
-			"description": "Visual and UX design on QuickBooks team"
+			"description": "Visual and UX design for QuickBooks team. Lead designer on QuickBooks Mobile for Android, including first release of tablet-optimized version. Worked closely with distributed development team and product managers in long and short iteration cycles."
 		}
 	],
 	"display": function() {
@@ -89,6 +92,7 @@ var work = {
 		    $("#workExperience").append(HTMLworkStart);
 
 		    var formattedEmployer = HTMLworkEmployer.replace("%data%", this.jobs[job].employer);
+		    formattedEmployer = formattedEmployer.replace("#", this.jobs[job].url);
 		    var formattedJob = HTMLworkTitle.replace("%data%", this.jobs[job].title);
 		    $(".work-entry:last").append(formattedJob + formattedEmployer);
 
@@ -105,18 +109,18 @@ var work = {
 var projects = {
 	"projects": [
 	{
-		"title": "NT Premium",
-		"dates": "Feb 2015 – present",
-		"description": "legal tools for entrepreneurs",
-		"images": ["images/qbm_cust_after.png", "images/qbm_invoice_after.png"]
+		"title": "Project Mirror",
+		"dates": "2014",
+		"description": "Joint project between Chrome and Identity teams, allowing Chrome to Mirror device-level accounts on Android. Designed options for sign in and manage accounts screens, explored implications of various proposed scenarios.",
+		"images": ["images/mirror_01.png", "images/mirror_02.png"]
 	}, 	{
-		"title": "Mobile web sign in",
-		"dates": "May 2014 – Dec 2014",
+		"title": "QuickBooks Mobile for Android Tablet",
+		"dates": "2011 – 2012",
 		"description": "sign in across all platforms",
 		"images": ["images/qbm_cust_after.png", "images/qbm_invoice_after.png"]
 	}, 	{
-		"title": "QuickBooks Mobile",
-		"dates": "Sep 2011 – Nov 2013",
+		"title": "QuickBooks Mobile First-time Experience",
+		"dates": "2011",
 		"description": "QuickBooks for Android phone and tablet",
 		"images": ["images/qbm_cust_after.png", "images/qbm_invoice_after.png"]
 	}],
@@ -124,21 +128,24 @@ var projects = {
 		for (project in this.projects) {
 		    $("#projects").append(HTMLprojectStart);
 
-		    var formattedTitle = HTMLprojectTitle.replace("%data%", this.projects[project].title);
-		    $(".project-entry:last").append(formattedTitle);
-
-		    var formattedDates = HTMLprojectDates.replace("%data%", this.projects[project].dates);
-		    $(".project-entry:last").append(formattedDates);
-
-		    var formattedDescription = HTMLprojectDescription.replace("%data%", this.projects[project].description);
-		    $(".project-entry:last").append(formattedDescription);
-
-		    //TODO loop through images array instead of hardcoding in two images
+		     //TODO loop through images array instead of hardcoding in two imageså
+	        $(".project-entry:last").append(HTMLprojectCarouselStart);
 		    var formattedImage1 = HTMLprojectImage.replace("%data%", this.projects[project].images[0]);
-		    $(".project-entry:last").append(formattedImage1);
+		    $(".forSlick:last").append(formattedImage1);
 
 		    var formattedImage2 = HTMLprojectImage.replace("%data%", this.projects[project].images[1]);
-		    $(".project-entry:last").append(formattedImage2);
+		    $(".forSlick:last").append(formattedImage2);
+
+		    $(".project-entry:last").append(HTMLprojectText);
+
+		    var formattedTitle = HTMLprojectTitle.replace("%data%", this.projects[project].title);
+		    $(".project-text:last").append(formattedTitle);
+
+		    var formattedDates = HTMLprojectDates.replace("%data%", this.projects[project].dates);
+		    $(".project-text:last").append(formattedDates);
+
+		    var formattedDescription = HTMLprojectDescription.replace("%data%", this.projects[project].description);
+		    $(".project-text:last").append(formattedDescription);
 		}
 	}
 }
@@ -157,7 +164,7 @@ var education = {
 			"location": "New Haven, CT",
 			"degree": "BA",
 			"majors": ["Art"],
-			"dates": "1994 – 1998",
+			"dates": "1998",
 			"url": "http://www.yale.edu/"
 		}],
 	"onlineCourses": [
@@ -179,38 +186,43 @@ var education = {
 		}
 	],
 	"display": function(){
-		$("#education").append(HTMLschoolStart);
-
 		for (school in this.schools) {
+			$("#education").append(HTMLschoolStart);
+
 			var formattedName = HTMLschoolName.replace("%data%", this.schools[school].name);
-			var formattedDegree = HTMLschoolDegree.replace("%data%", this.schools[school].degree);
-			$(".education-entry:last").append(formattedName + formattedDegree);
+			formattedName = formattedName.replace("#", this.schools[school].url);
+			$(".education-entry:last").append(formattedName);
 
 			var formattedDates = HTMLschoolDates.replace("%data%", this.schools[school].dates);
-			$(".education-entry:last").append(formattedDates);
-
 			var formattedLocation = HTMLschoolLocation.replace("%data%", this.schools[school].location);
-			$(".education-entry:last").append(formattedLocation);
+			$(".education-entry:last").append(formattedLocation + formattedDates);
 
+			var formattedDegree = HTMLschoolDegree.replace("%data%", this.schools[school].degree);
+			var counter = 0;
 			for (major in this.schools[school].majors) {
-				var formattedMajor = HTMLschoolMajor.replace("%data%", this.schools[school].majors[major]);
-				$(".education-entry:last").append(formattedMajor);
+				if (counter > 0) {
+					formattedDegree += ", ";
+				}
+				formattedDegree += this.schools[school].majors[major];
+				counter++;
 			}
+			$(".education-entry:last").append(formattedDegree);
 		}
 
-		$("#education").append(HTMLonlineClasses);
-		$("#education").append(HTMLschoolStart);
+		$("#onlineeducation").append(HTMLonlineClasses);
 
 		for (course in this.onlineCourses) {
-			var formattedTitle = HTMLonlineTitle.replace("%data%", this.onlineCourses[course].title);
+			$("#onlineeducation").append(HTMLschoolStart);
+
 			var formattedSchool = HTMLonlineSchool.replace("%data%", this.onlineCourses[course].school);
-			$(".education-entry:last").append(formattedTitle + formattedSchool);
+			$(".education-entry:last").append(formattedSchool);
 
 			var formattedOnlineDates = HTMLonlineDates.replace("%data%", this.onlineCourses[course].dates);
 			$(".education-entry:last").append(formattedOnlineDates);
 
-			var formattedUrl = HTMLonlineURL.replace("%data%", this.onlineCourses[course].url);
-			$(".education-entry:last").append(formattedUrl);
+			var formattedTitle = HTMLonlineTitle.replace("%data%", this.onlineCourses[course].title);
+			formattedTitle = formattedTitle.replace("#", this.onlineCourses[course].url);
+			$(".education-entry:last").append(formattedTitle);
 		}
 	}
 }
