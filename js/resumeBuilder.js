@@ -116,25 +116,23 @@ var projects = {
 	}, 	{
 		"title": "QuickBooks Mobile for Android Tablet",
 		"dates": "2011 – 2012",
-		"description": "sign in across all platforms",
-		"images": ["images/qbm_cust_after.png", "images/qbm_invoice_after.png"]
+		"description": "Adaptation of in-market phone application for tablet-sized screens. Included redesigned forms, introduction of new grid layout, and improved navigation patterns. Visual and some UX design for entire process, from concept to initial  release.",
+		"images": ["images/tablet_01.png", "images/tablet_02.png", "images/tablet_03.png"]
 	}, 	{
 		"title": "QuickBooks Mobile First-time Experience",
 		"dates": "2011",
-		"description": "QuickBooks for Android phone and tablet",
-		"images": ["images/qbm_cust_after.png", "images/qbm_invoice_after.png"]
+		"description": "First-time experience for QuickBooks Mobile for Android. Besides improvements to sign in and loading screens, included small tour of top 7 features (based on usage statistics). Resulted in a 21% reduction in failed logins, and a 50% increase of trial subscriptions to QuickBooks Online.",
+		"images": ["images/ftu_01.png", "images/ftu_02.png", "images/ftu_03.png", "images/ftu_04.png", "images/ftu_05.png"]
 	}],
 	"display": function() {
 		for (project in this.projects) {
 		    $("#projects").append(HTMLprojectStart);
 
-		     //TODO loop through images array instead of hardcoding in two imageså
 	        $(".project-entry:last").append(HTMLprojectCarouselStart);
-		    var formattedImage1 = HTMLprojectImage.replace("%data%", this.projects[project].images[0]);
-		    $(".forSlick:last").append(formattedImage1);
-
-		    var formattedImage2 = HTMLprojectImage.replace("%data%", this.projects[project].images[1]);
-		    $(".forSlick:last").append(formattedImage2);
+	        for (image in this.projects[project].images) {
+			    var formattedImage = HTMLprojectImage.replace("%data%", this.projects[project].images[image]);
+			    $(".forSlick:last").append(formattedImage);
+			}
 
 		    $(".project-entry:last").append(HTMLprojectText);
 
