@@ -164,22 +164,43 @@ function initializeMap() {
 
     var styles = [
   {
-    stylers: [
-      { hue: "#50E3C2" },
-      { saturation: 60 },
-      { lightness: -10 },
-      { gamma: 1.3 }
-    ]
+
   },{
     featureType: "water",
     elementType: "geometry",
     stylers: [
-      { lightness: 100 },
+      { hue: "#50E3C2" },
+      { lightness: 50 },
       { visibility: "simplified" }
     ]
   },{
     featureType: "road",
     elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  }, {
+    featureType: "landscape",
+    elementType: "geometry",
+    stylers: [
+      { visibility: "simplified" },
+      {  color: "#50E3C2"}
+    ]
+  }, {
+    featureType: "administrative.province",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  }, {
+    featureType: "all",
+    elementType: "labels.text.stroke",
+    stylers: [
+      { visibility: "off" }
+    ]
+  }, {
+    featureType: "administrative.province",
+    elementType: "geometry.stroke",
     stylers: [
       { visibility: "off" }
     ]
