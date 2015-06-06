@@ -26,6 +26,7 @@ span {
 
 li {
   padding-bottom: 5px;
+  display: inline;
 }
 
 hr {
@@ -229,7 +230,14 @@ header {
 
 .icon {
   font-family: 'FontAwesome';
-  padding: 5px;
+  font-size: 24px;
+  padding: 10px;
+  color: #2A7363;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: #1a1a1a;
 }
 
 .welcome-message {
@@ -372,6 +380,12 @@ FOOTER
 
 footer {
   background-color: #50E3C2;
+  padding:30px;
+}
+
+#footercontacts {
+margin-left: auto;
+margin-right: auto;
 }
 
 #letsConnect h2 {

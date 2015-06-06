@@ -3,7 +3,7 @@
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<h2 class="header">%data%</h2>';
 
-var HTMLcontactGeneric = '<li><span class="icon">%contact%</span>%data%</li>';
+var HTMLcontactGeneric = '<li class="icon iconlink tooltip" title="%data%">%contact%</li>';
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<h2>%data%</h2>';
 
@@ -49,6 +49,11 @@ $(document).ready(function(){
     prevArrow: '<button type="button" class="slick-prev"></button>',
     nextArrow: '<button type="button" class="slick-next"></button>'
   });
+
+  $('.tooltip').tooltipster({
+    arrow: false
+  });
+
 });
 
 /*
