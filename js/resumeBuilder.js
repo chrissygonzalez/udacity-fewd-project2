@@ -12,15 +12,19 @@ var bio = {
 	"skills": ["UX design", "visual design", "front end development"],
 	"biopic": "images/sprinkles.png",
 	"display": function() {
+		// name and role are the dark headline
 		var formattedNameRole = HTMLheaderName.replace("%data%", this.name + ", "+ this.role);
 		$("#namerole").append(formattedNameRole);
 
+		// welcome message is the slightly lighter headline
 		var formattedMsg = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
 		$("#namerole").append(formattedMsg);
 
+		// the rainbow sprinkles
 		var formattedBioPic = HTMLbioPic.replace("%data%", this.biopic);
 		$("#namerole").prepend(formattedBioPic);
 
+		// FontAwesome icons with contact info tooltips
 		for (contact in this.contacts) {
 			var formattedContact = "";
 			switch (contact) {
@@ -42,16 +46,14 @@ var bio = {
 				default:
 					formattedContact = HTMLcontactGeneric.replace("%contact%", contact);
 			}
-			/*if(contact === "twitter") {
-				formattedContact = HTMLcontactGeneric.replace("%contact%", "");
-			} else {
-				formattedContact = HTMLcontactGeneric.replace("%contact%", contact);
-			} */
+
+			// append icons to header and footer
 			formattedContact = formattedContact.replace("%data%", this.contacts[contact]);
 			$("#topContacts").append(formattedContact);
 			$("#footerContacts").append(formattedContact);
 		}
 
+		// list skills as pink pills
 		if (this.skills.length > 0) {
 		  $("#skillsSection").append(HTMLskillsStart);
 		  for (skill in this.skills) {
@@ -89,17 +91,22 @@ var work = {
 	],
 	"display": function() {
 		for (job in this.jobs) {
+
+			// start a work entry
 		    $("#workExperience").append(HTMLworkStart);
 
+		    // employer is a link, job is just text
 		    var formattedEmployer = HTMLworkEmployer.replace("%data%", this.jobs[job].employer);
 		    formattedEmployer = formattedEmployer.replace("#", this.jobs[job].url);
 		    var formattedJob = HTMLworkTitle.replace("%data%", this.jobs[job].title);
 		    $(".work-entry:last").append(formattedJob + formattedEmployer);
 
+		    // location and dates on one line
 		    var formattedLocation = HTMLworkLocation.replace("%data%", this.jobs[job].location);
 		    var formattedDates = HTMLworkDates.replace("%data%", this.jobs[job].dates);
 		    $(".work-entry:last").append(formattedLocation + formattedDates);
 
+		    // paragraph description
 		    var formattedDescription = HTMLworkDescription.replace("%data%", this.jobs[job].description);
 		    $(".work-entry:last").append(formattedDescription);
 		}
@@ -126,16 +133,21 @@ var projects = {
 	}],
 	"display": function() {
 		for (project in this.projects) {
+
+			// start a project entry
 		    $("#projects").append(HTMLprojectStart);
 
+		    // loop through images, add them for Slick Carousel
 	        $(".project-entry:last").append(HTMLprojectCarouselStart);
 	        for (image in this.projects[project].images) {
 			    var formattedImage = HTMLprojectImage.replace("%data%", this.projects[project].images[image]);
 			    $(".forSlick:last").append(formattedImage);
 			}
 
+			// start new project text section
 		    $(".project-entry:last").append(HTMLprojectText);
 
+		    // name, title, and description of project
 		    var formattedTitle = HTMLprojectTitle.replace("%data%", this.projects[project].title);
 		    $(".project-text:last").append(formattedTitle);
 
@@ -185,16 +197,21 @@ var education = {
 	],
 	"display": function(){
 		for (school in this.schools) {
+
+			// add new education entry to Education
 			$("#education").append(HTMLschoolStart);
 
+			// school name is a link
 			var formattedName = HTMLschoolName.replace("%data%", this.schools[school].name);
 			formattedName = formattedName.replace("#", this.schools[school].url);
 			$(".education-entry:last").append(formattedName);
 
+			// dates and location on one line
 			var formattedDates = HTMLschoolDates.replace("%data%", this.schools[school].dates);
 			var formattedLocation = HTMLschoolLocation.replace("%data%", this.schools[school].location);
 			$(".education-entry:last").append(formattedLocation + formattedDates);
 
+			// loop through majors, add to entry with commas in between
 			var formattedDegree = HTMLschoolDegree.replace("%data%", this.schools[school].degree);
 			var counter = 0;
 			for (major in this.schools[school].majors) {
@@ -207,28 +224,35 @@ var education = {
 			$(".education-entry:last").append(formattedDegree);
 		}
 
+		// add Online Classes section
 		$("#onlineeducation").append(HTMLonlineClasses);
 
 		for (course in this.onlineCourses) {
+
+			// add new education entry to Online Classes
 			$("#onlineeducation").append(HTMLschoolStart);
 
+			// school is a link
 			var formattedSchool = HTMLonlineSchool.replace("%data%", this.onlineCourses[course].school);
+			formattedSchool = formattedSchool.replace("#", this.onlineCourses[course].url);
 			$(".education-entry:last").append(formattedSchool);
 
+			// date and class title
 			var formattedOnlineDates = HTMLonlineDates.replace("%data%", this.onlineCourses[course].dates);
 			$(".education-entry:last").append(formattedOnlineDates);
 
 			var formattedTitle = HTMLonlineTitle.replace("%data%", this.onlineCourses[course].title);
-			formattedTitle = formattedTitle.replace("#", this.onlineCourses[course].url);
 			$(".education-entry:last").append(formattedTitle);
 		}
 	}
 }
 
+// DO IT!!
 bio.display();
 work.display();
 projects.display();
 education.display();
 
+// add the Google map
 $("#mapDiv").append(googleMap);
 

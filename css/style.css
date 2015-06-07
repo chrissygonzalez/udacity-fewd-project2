@@ -206,6 +206,7 @@ GENERAL CLASSES
   display: -webkit-flex;
   display: flex;
   flex-direction: row;
+  -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   justify-content: flex-start;
   padding: 10px;
@@ -269,7 +270,7 @@ WORK
 
 #workExperience {
   width: 66.6%;
-  margin-left: 8.5%
+  margin-left: 8.33%
 }
 
 /*
@@ -281,11 +282,12 @@ PROJECTS
 #projects {
   padding-bottom: 40px;
   width: 66.6%;
-  margin-left: 8.5%
+  margin-left: 8.33%
 }
 
 .forSlick {
   width: 25%;
+  -webkit-order: 1;
   order: 1;
 }
 
@@ -294,6 +296,7 @@ PROJECTS
   padding-top: 10px;
   margin-left: 30px;
   width: 450px;
+  -webkit-order: 2;
   order: 2;
 }
 
@@ -358,6 +361,11 @@ MAP
 *****************
 */
 
+#mapsection {
+  margin-left: 8.33%;
+  width: 75%;
+}
+
 #map {
   margin-top: 40px;
   display: block;
@@ -367,7 +375,7 @@ MAP
 
 #mapDiv {
   height: 400px;
-  width: 80%;
+
   padding-bottom: 40px;
 }
 
@@ -388,6 +396,7 @@ MEDIA QUERIES
 *****************
 */
 @media only screen and (max-width: 960px) {
+
   #projects {
     width: 83.33%;
   }
@@ -395,6 +404,7 @@ MEDIA QUERIES
   .project-text {
     width: 100%;
     margin-left: 0;
+    -webkit-order: 0;
     order: 0;
   }
 
@@ -403,6 +413,7 @@ MEDIA QUERIES
   }
 
   .forSlick {
+    -webkit-order: 2;
     order: 2;
     width: 100%;
   }
@@ -411,9 +422,11 @@ MEDIA QUERIES
     margin-left: auto;
     margin-right: auto;
   }
+
 }
 
 @media only screen and (max-width: 924px) {
+
   .welcome {
     display: none;
   }
@@ -421,15 +434,20 @@ MEDIA QUERIES
     margin-left: 6%;
     margin-top: 0;
   }
+
 }
 
 @media only screen and (max-width: 850px) {
-  #workExperience {
+
+  #workExperience,
+  #mapsection {
     width: 83.33%;
   }
+
 }
 
 @media only screen and (max-width: 760px) {
+
   h1 {
     font-size: 30px;
     line-height: 45px;
@@ -443,13 +461,11 @@ MEDIA QUERIES
     display: block;
     width: 100%;
   }
-}
-
-@media only screen and (max-width: 690px) {
 
 }
 
 @media only screen and (max-width: 590px) {
+
   #skillsSection {
     margin-left: 8%;
   }
@@ -485,4 +501,5 @@ MEDIA QUERIES
   footer {
     padding-bottom: 10px;
   }
+
 }

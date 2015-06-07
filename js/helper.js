@@ -11,10 +11,10 @@ var HTMLskillsStart = '<h3 class="pink">Top Skills</h3><ul id="skills"></ul>';
 var HTMLskills = '<li class="skill">%data%</li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = ', <a href="#" target="_blank">%data%</a></div>';
-var HTMLworkTitle = '<div class="employer">%data%';
-var HTMLworkDates = '%data%</div>';
-var HTMLworkLocation = '<div class="serif-text">%data% • ';
+var HTMLworkEmployer = ', <a href="#" target="_blank">%data%</a></h4>';
+var HTMLworkTitle = '<h4 class="employer">%data%';
+var HTMLworkDates = '%data%</p>';
+var HTMLworkLocation = '<p class="date-text">%data% • ';
 var HTMLworkDescription = '<p>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry flex-box"></div>';
@@ -26,17 +26,16 @@ var HTMLprojectCarouselStart = '<div class="carousel forSlick"></div>';
 var HTMLprojectImage = '<div><img src="%data%" class="carousel"></div>';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%</a>';
-var HTMLschoolDates = ' • %data%</div>';
-var HTMLschoolLocation = '<div class="serif-text">%data%';
-var HTMLschoolDegree = '<div class="serif-text italic">%data% in ';
-var HTMLschoolMajor = '%data%</div>';
+var HTMLschoolName = '<h4><a href="#" target="_blank">%data%</a></h4>';
+var HTMLschoolDates = ' • %data%</p>';
+var HTMLschoolLocation = '<p class="date-text">%data%';
+var HTMLschoolDegree = '<p class="date-text italic">%data% in ';
+var HTMLschoolMajor = '%data%</p>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<div class="serif-text italic">%data%</div>';
-var HTMLonlineSchool = '<a href="#">%data%</a>';
-var HTMLonlineDates = '<div class="serif-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineTitle = '<p class="date-text italic">%data%</p>';
+var HTMLonlineSchool = '<h4><a href="#" target="_blank">%data%</a></h4>';
+var HTMLonlineDates = '<p class="date-text">%data%</p>';
 
 var googleMap = '<div id="map"></div>';
 
