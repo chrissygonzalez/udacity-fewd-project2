@@ -5,7 +5,7 @@
 }
 
 a {
-  color: #1199C3;
+  color: #1199c3;
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -18,6 +18,7 @@ ul {
 
 img {
   padding: 10px;
+  max-width: 100%;
 }
 
 span {
@@ -120,7 +121,7 @@ h2 {
   font-weight: normal;
   font-size: 24px;
   line-height: 29px;
-  color: #2A7363;
+  color: #2a7363;
 }
 
 h3 {
@@ -133,7 +134,10 @@ h3 {
 }
 
 h4 {
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 18px;
+  font-family: 'Montserrat';
+  font-weight: normal;
 }
 
 a {
@@ -145,7 +149,7 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: #286DBE;
+  color: #286dbe;
 }
 
 p {
@@ -158,7 +162,7 @@ p {
 }
 
 .pink {
-  color: #FF16BD;
+  color: #ff16bd;
   margin-right: 5px;
 }
 
@@ -168,10 +172,9 @@ p {
 }
 
 .date-text {
-  font-size: 14px;
-  color: #999999;
-  line-height: 16px;
-  float: left;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 3px 0 15px 0;
 }
 
 .serif-text {
@@ -181,6 +184,12 @@ p {
 
 .italic {
   font-style: italic;
+}
+
+.darker {
+  margin-top: 20px;
+  color: #1a1a1a;
+  width: 50%;
 }
 
 /*
@@ -196,21 +205,10 @@ GENERAL CLASSES
 .flex-box {
   display: -webkit-flex;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   padding: 10px;
-}
-
-.center-content {
-  padding-top: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 2.5%
-}
-
-.right {
-  float: right;
 }
 
 /*
@@ -222,10 +220,6 @@ HEADER
 header {
   background-color: #50E3C2;
   padding-bottom: 20px;
-}
-
-.lighter{
-  color: #666;
 }
 
 .icon {
@@ -240,19 +234,9 @@ header {
   color: #1a1a1a;
 }
 
-.welcome-message {
-  font-size: 18px;
-  color: #1a1a1a;
-  line-height: 28px;
-}
-
-.biopic {
-  padding: 10px;
-  display: none;
-}
-
 #topContacts {
-  margin-top: 45px;
+  margin-top: 25px;
+  height: 50px;
 }
 
 /*
@@ -263,12 +247,13 @@ SKILLS
 
 #skillsSection {
   margin-bottom: 20px;
+  margin-left: 8.33%;
 }
 
 .skill {
   font-size: 14px;
   font-weight: bold;
-  background-color: #FF16BD;
+  background-color: #ff16bd;
   color: #fff;
   display: inline-block;
   margin: 10px;
@@ -283,7 +268,8 @@ WORK
 */
 
 #workExperience {
-
+  width: 66.6%;
+  margin-left: 8.5%
 }
 
 /*
@@ -294,25 +280,35 @@ PROJECTS
 
 #projects {
   padding-bottom: 40px;
+  width: 66.6%;
+  margin-left: 8.5%
 }
 
-#carousel {
-  display: inline-block;
+.forSlick {
+  width: 25%;
+  order: 1;
 }
 
 .project-text {
-  display: inline-block;
   vertical-align: top;
   padding-top: 10px;
   margin-left: 30px;
-}
-
-.carousel {
-
+  width: 450px;
+  order: 2;
 }
 
 .project-entry {
   margin-top: 30px;
+  padding: 0;
+}
+
+.slick-slide {
+  overflow: hidden;
+}
+
+.carousel {
+  max-width: 100%;
+  padding: 0;
 }
 
 .slick-prev,
@@ -323,15 +319,16 @@ PROJECTS
   border: none;
   background-color: transparent;
   color: #ccc;
+  width: 50px;
 }
 
 .slick-prev:hover,
 .slick-next:hover {
-  color: #286DBE;
+  color: #286dbe;
 }
 
 .slick-prev {
-  margin-left: 65px;
+  margin-left: calc((100% - 100px) / 2 );
 }
 
 button:focus {
@@ -346,6 +343,8 @@ EDUCATION
 
 #education,
 #onlineeducation {
+  margin-left: 8.33%;
+  margin-right: 5%;
   padding-bottom: 40px;
 }
 
@@ -363,7 +362,7 @@ MAP
   margin-top: 40px;
   display: block;
   height: 100%;
-  border: 1px solid #F0F0F0;
+  border: 1px solid #f0f0f0;
 }
 
 #mapDiv {
@@ -379,17 +378,8 @@ FOOTER
 */
 
 footer {
-  background-color: #50E3C2;
-  padding:30px;
-}
-
-#footercontacts {
-margin-left: auto;
-margin-right: auto;
-}
-
-#letsConnect h2 {
-  text-align: center;
+  background-color: #50e3c2;
+  padding:30px 0;
 }
 
 /*
@@ -397,34 +387,102 @@ margin-right: auto;
 MEDIA QUERIES
 *****************
 */
+@media only screen and (max-width: 960px) {
+  #projects {
+    width: 83.33%;
+  }
 
-@media only screen and (max-width: 1024px) {
-  #letsConnect {
-    margin-top: 5%;
+  .project-text {
+    width: 100%;
+    margin-left: 0;
+    order: 0;
+  }
+
+  .project-entry {
+    padding-left: 0;
+  }
+
+  .forSlick {
+    order: 2;
+    width: 100%;
+  }
+
+  .carousel {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  #letsConnect {
-    margin-top: 10%;
-  }
-  .biopic {
-    width: 150px;
-  }
-  .welcome-message {
+@media only screen and (max-width: 924px) {
+  .welcome {
     display: none;
   }
+  #topContacts {
+    margin-left: 6%;
+    margin-top: 0;
+  }
 }
 
-@media only screen and (min-width: 750px) {
-  #skillsH3,
+@media only screen and (max-width: 850px) {
+  #workExperience {
+    width: 83.33%;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  h1 {
+    font-size: 30px;
+    line-height: 45px;
+  }
+
+  #topContacts {
+    margin-top: 15px;
+  }
+
   .biopic {
     display: block;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 690px) {
+
+}
+
+@media only screen and (max-width: 590px) {
+  #skillsSection {
+    margin-left: 8%;
+  }
+
+  .pink {
+    margin-right: 10px;
+  }
+
+  #skillsSection {
+    flex-direction: column;
+  }
+
+  .skill {
+    margin-left: 0;
+  }
+
+  .darker {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  #footerContacts {
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+  }
+
+  .icon {
+    height: 50px;
+  }
+
+  footer {
+    padding-bottom: 10px;
   }
 }

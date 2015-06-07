@@ -1,108 +1,113 @@
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
-  <title>Resume</title>
+  <meta name="viewport" content="width=device-width">
+  <title>Chrissy Gonzalez</title>
 
-  <!-- Load the page styles. -->
-  <link href="css/style.css" rel="stylesheet" type="text/css">
-  <link href='http://fonts.googleapis.com/css?family=Merriweather:400' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
+  <!-- Styles for page, slick carousel, and tooltips -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css">
+  <link rel="stylesheet" href="css/tooltipster.css">
+
+  <!-- Styles for Google fonts  and FontAwesome -->
+  <link href='http://fonts.googleapis.com/css?family=Merriweather:400' rel='stylesheet'>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet'>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- All the external Javascript -->
   <script src="js/jQuery.js"></script>
   <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
   <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
-  <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-
-  <meta name="viewport" content="width=device-width">
 </head>
 
 <body unresolved>
+
+    <!-- Green header with sprinkles, name and role, message, and contact links -->
     <header>
       <div class="grid">
         <div class="row">
           <div class="col-1"></div>
           <section id="namerole" class="col-8"></section>
-          <ul id="topContacts" class="col-2"></ul>
+          <ul id="topContacts" class="flex-box"></ul>
         </div>
       </div>
     </header>
 
+  <!-- Pink skills pills -->
     <div class="grid">
       <div class="row">
-        <div class="col-1"></div>
-        <div id="skillsSection"></div>
+        <section id="skillsSection"></section>
       </div>
     </div>
 
     <hr>
 
+  <!-- Work -->
     <div class="grid">
       <div class="row">
-        <div class="col-1"></div>
-        <div id="workExperience" class="col-8">
+        <section id="workExperience">
           <h3>Work Experience</h3>
-        </div>
+        </section>
       </div>
     </div>
 
     <hr>
 
+  <!-- Projects, including Slick Carousel for project images -->
     <div class="grid">
       <div class="row">
-        <div class="col-1"></div>
-        <div id="projects" class="col-11">
+        <section id="projects">
           <h3>Recent Projects</h3>
-        </div>
+        </section>
       </div>
     </div>
 
     <hr>
 
+  <!-- 2 columns for Education -->
     <div class="grid">
       <div class="row">
-        <div class="col-1"></div>
-        <div id="education" class='col-5'>
+        <section id="education">
           <h3>Education</h3>
-        </div>
-        <div id="onlineeducation" class='col-5'>
-        </div>
+        </section>
+        <section id="onlineeducation">
+        </section>
       </div>
     </div>
 
     <hr>
 
+  <!-- Styled map, with scroll zoom turned off -->
     <div class="grid">
       <div class="row">
         <div class="col-1"></div>
-        <div class="col-11">
+        <section class="col-11">
           <h3>Where I've Lived and Worked</h3>
           <div id="mapDiv"></div>
-        </div>
+        </section>
       </div>
     </div>
 
+  <!-- Green footer -->
     <footer>
       <div class="grid">
         <div class="row">
           <div class="col-1"></div>
-          <h2 class="col-6">Get in touch</h2>
-            <ul id="footerContacts" class="col-2">
+          <h2 class="darker">Get in touch!</h2>
+            <ul id="footerContacts" class="flex-box">
             </ul>
         </div>
       </div>
     </footer>
 
+  <!-- resumeBuilder adds most of the content to the page -->
   <script src="js/resumeBuilder.js"></script>
 
+  <!-- Hides sections that have no content -->
   <script type="text/javascript">
 
-    //if(document.getElementsByClassName('flex-item').length === 0) {
-    //  document.getElementById('topContacts').style.display = 'none';
-    //}
     if(document.getElementsByTagName('h1').length === 0) {
       document.getElementById('header').style.display = 'none';
     }
@@ -115,9 +120,6 @@
     if(document.getElementsByClassName('education-entry').length === 0) {
       document.getElementById('education').style.display = 'none';
     }
-    //if(document.getElementsByClassName('flex-item').length === 0) {
-    //  document.getElementById('letsConnect').style.display = 'none';
-    //}
     if(document.getElementById('map') === null) {
       document.getElementById('mapDiv').style.display = 'none';
     }

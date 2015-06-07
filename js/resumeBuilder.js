@@ -230,12 +230,5 @@ work.display();
 projects.display();
 education.display();
 
-function inName(name) {
-  var nameArray = name.trim().split(" ");
-  var formattedName = nameArray[0].slice(0, 1).toUpperCase() + nameArray[0].slice(1).toLowerCase() + " " + nameArray[1].toUpperCase();
-
-  return formattedName;
-}
-
 $("#mapDiv").append(googleMap);
 

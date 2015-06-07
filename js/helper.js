@@ -3,9 +3,9 @@
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<h2 class="header">%data%</h2>';
 
-var HTMLcontactGeneric = '<li class="icon iconlink tooltip" title="%data%">%contact%</li>';
+var HTMLcontactGeneric = '<li class="icon tooltip" title="%data%">%contact%</li>';
 var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLwelcomeMsg = '<h2>%data%</h2>';
+var HTMLwelcomeMsg = '<h2 class="welcome">%data%</h2>';
 
 var HTMLskillsStart = '<h3 class="pink">Top Skills</h3><ul id="skills"></ul>';
 var HTMLskills = '<li class="skill">%data%</li>';
@@ -17,13 +17,13 @@ var HTMLworkDates = '%data%</div>';
 var HTMLworkLocation = '<div class="serif-text">%data% • ';
 var HTMLworkDescription = '<p>%data%</p>';
 
-var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectText = '<div class="project-text col-6"></div>';
-var HTMLprojectTitle = '<div>%data%</div>';
-var HTMLprojectDates = '<div class="serif-text">%data%</div>';
+var HTMLprojectStart = '<div class="project-entry flex-box"></div>';
+var HTMLprojectText = '<div class="project-text"></div>';
+var HTMLprojectTitle = '<h4>%data%</h4>';
+var HTMLprojectDates = '<p class="date-text">%data%</p>';
 var HTMLprojectDescription = '<p>%data%</p>';
-var HTMLprojectCarouselStart = '<div id="carousel" class="forSlick col-3"></div>';
-var HTMLprojectImage = '<div class="carousel"><img src="%data%"></div>';
+var HTMLprojectCarouselStart = '<div class="carousel forSlick"></div>';
+var HTMLprojectImage = '<div><img src="%data%" class="carousel"></div>';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%</a>';
@@ -40,6 +40,7 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var googleMap = '<div id="map"></div>';
 
+var map;
 
 // for Slick Carousel (http://kenwheeler.github.io/slick/)
 $(document).ready(function(){
@@ -47,7 +48,7 @@ $(document).ready(function(){
     slidesToShow: 1,
     slidesToScroll: 1,
     prevArrow: '<button type="button" class="slick-prev"></button>',
-    nextArrow: '<button type="button" class="slick-next"></button>'
+    nextArrow: '<button type="button" class="slick-next"></button>',
   });
 
   $('.tooltip').tooltipster({
@@ -56,9 +57,7 @@ $(document).ready(function(){
 
 });
 
-/*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
-*/
+// to collect and log clicks
 clickLocations = [];
 
 function logClicks(x,y) {
@@ -72,17 +71,11 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
   logClicks(loc.clientX, loc.clientY);
 });
 
 
-var map;    // declares a global map variable
-
-
-/*
-Start here! initializeMap() is called when page is loaded.
-*/
+// initialize Google map
 function initializeMap() {
 
   var locations;
@@ -92,8 +85,6 @@ function initializeMap() {
     disableDefaultUI: true
   };
 
-  // This next line makes `map` a new Google Map JavaScript Object and attaches it to
-  // <div id="map">, which is appended as part of an exercise late in the course.
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
 
@@ -102,8 +93,6 @@ function initializeMap() {
   written for bio, education, and work.
   */
   function locationFinder() {
-
-    // initializes an empty array
     var locations = [];
 
     // adds the single location property from bio to the locations array
@@ -153,20 +142,18 @@ function initializeMap() {
       content: name
     });
 
-    // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
       infoWindow.open(map, marker);
     });
 
-    // this is where the pin actually gets added to the map.
-    // bounds.extend() takes in a map location object
     bounds.extend(new google.maps.LatLng(lat, lon));
+
     // fit the map to the new marker
     map.fitBounds(bounds);
     // center the map
     map.setCenter(bounds.getCenter());
 
+    // map styles
     var styles = [
   {
 
@@ -260,10 +247,6 @@ map.setOptions({styles: styles});
   pinPoster(locations);
 
 }
-
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
 
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
