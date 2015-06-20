@@ -111,7 +111,7 @@ var work = {
 		    $(".work-entry:last").append(formattedDescription);
 		}
 	}
-}
+};
 
 var projects = {
 	"projects": [
@@ -158,7 +158,7 @@ var projects = {
 		    $(".project-text:last").append(formattedDescription);
 		}
 	}
-}
+};
 
 var education = {
 	"schools": [
@@ -245,7 +245,7 @@ var education = {
 			$(".education-entry:last").append(formattedTitle);
 		}
 	}
-}
+};
 
 // DO IT!!
 bio.display();

@@ -33,7 +33,7 @@ li {
 hr {
   border: 0;
   height: 2px;
-  background: #F0F0F0;
+  background: #f0f0f0;
 }
 
 /*
@@ -270,7 +270,7 @@ WORK
 
 #workExperience {
   width: 66.6%;
-  margin-left: 8.33%
+  margin-left: 8.33%;
 }
 
 /*
@@ -282,7 +282,7 @@ PROJECTS
 #projects {
   padding-bottom: 40px;
   width: 66.6%;
-  margin-left: 8.33%
+  margin-left: 8.33%;
 }
 
 .forSlick {
